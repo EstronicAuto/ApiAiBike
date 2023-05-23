@@ -5,6 +5,7 @@ const Bike = mongoose.model('Bike',{
     BikeApp : Boolean,
     batterylevel : Number,
     velocity : Number,
+    distance : Number,
     BikeOn : Boolean
 })
 
