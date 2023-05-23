@@ -14,13 +14,14 @@ router.get('/', async (req,res) =>{
 
 //Create Bike
 router.post('/', async (req,res) =>{
-    const {numberSerie, BikeApp, batterylevel, velocity,BikeOn} = req.body
+    const {numberSerie, BikeApp, batterylevel, velocity,distance,BikeOn} = req.body
 
     const bike = {
         numberSerie,
         BikeApp,
         batterylevel,
         velocity,
+        distance,
         BikeOn
     }
 
@@ -51,13 +52,14 @@ router.post('/LastBikeCreated', async(req,res) =>{
 router.patch('/:id', async (req,res) =>{
     const id = req.params.id
 
-    const {numberSerie, BikeApp, batterylevel, velocity,BikeOn} = req.body
+    const {numberSerie, BikeApp, batterylevel, velocity,distance,BikeOn} = req.body
 
     const bike = {
         numberSerie,
         BikeApp,
         batterylevel,
         velocity,
+        distance,
         BikeOn
     }
 
