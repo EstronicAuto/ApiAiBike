@@ -6,7 +6,8 @@ const Bike = mongoose.model('Bike',{
     batterylevel : Number,
     velocity : Number,
     distance : Number,
-    BikeOn : Boolean
+    BikeOn : Boolean,
+    Date : Date
 })
 
 module.exports = Bike;
