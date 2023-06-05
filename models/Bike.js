@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const BikeSchema = mongoose.Schema({
 
-    numberSerir :{
+    numberSerie :{
         type: String,
         require: true,
         default: 0
