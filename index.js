@@ -27,6 +27,10 @@ app.use('/person', personRoutes)
 //Bike
 const bikeRoutes = require('./routes/bikeRoutes.Js')
 app.use('/bike', bikeRoutes)
+
+//BikeHistory
+const bikeHistoryRoutes = require('./routes/bikeHistoryRoutes')
+app.use('/bikehistory', bikeHistoryRoutes)
 //--///////////////////////////////////
 app.get('/', (req,res) =>{
     //mostrar req
