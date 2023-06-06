@@ -67,13 +67,14 @@ router.post('/LastBikeCreated', async(req,res) =>{
 router.patch('/:id', async (req,res) =>{
     const id = req.params.id
 
-    const {numberSerie, BikeApp, batterylevel, velocity,distance,BikeOn,Date} = req.body
+    const {numberSerie, BikeApp, batterylevel, velocity,velocitymax,distance,BikeOn,Date} = req.body
 
     const bike = {
         numberSerie,
         BikeApp,
         batterylevel,
         velocity,
+        velocitymax,
         distance,
         BikeOn,
         Date

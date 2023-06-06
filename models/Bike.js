@@ -4,7 +4,7 @@ const BikeSchema = mongoose.Schema({
 
     numberSerie :{
         type: String,
-        require: true,
+        require: false,
         default: 0
     },
     BikeApp :{
@@ -32,6 +32,11 @@ const BikeSchema = mongoose.Schema({
         require: true,
         default: 0
     },
+    avar:{
+        type :  Number,
+        require: true,
+        default: 0
+    },
     BikeOn:{
         type : Boolean,
         require: true,
@@ -50,18 +55,3 @@ const BikeSchema = mongoose.Schema({
 
 
 
-
-/*
-const Bike = mongoose.model('Bike',{
-    numberSerie : String,
-    BikeApp : Boolean,
-    batterylevel : Number,
-    velocity : Number,
-    distance : Number,
-    BikeOn : Boolean,
-    Date : Date
-})
-
-module.exports = Bike;
-
-*/
