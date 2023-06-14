@@ -3,7 +3,7 @@
 //estronic
 // mongodb+srv://estronic:HVLoipGR384e4aSD@cluster.xakryqr.mongodb.net/?retryWrites=true&w=majority
 const express = require('express')
-const mongoose = require('mongoose');
+//const cors = require('cors')
 const app = express()
 
 
@@ -15,6 +15,11 @@ app.use(
     })
 )
  app.use(express.json())
+
+//DB CONECTAR
+
+const conn = require ("./db/conn");
+conn()
 
 // rota inical / endpoint
 // rotas
@@ -31,18 +36,23 @@ app.use('/bike', bikeRoutes)
 //BikeHistory
 const bikeHistoryRoutes = require('./routes/bikeHistoryRoutes')
 app.use('/bikehistory', bikeHistoryRoutes)
-//--///////////////////////////////////
-app.get('/', (req,res) =>{
-    //mostrar req
-    res.json({oi : 'Oi Express !'})
-})
 
+
+const routes = require("./routes/router")
+app.use('/api', routes)
+
+
+app.listen(3000, function(){
+    console.log("Servidor Online!!")
+})
 
 //entregar rota
-mongoose.connect('mongodb+srv://estronic:HVLoipGR384e4aSD@cluster.xakryqr.mongodb.net/?retryWrites=true&w=majority')
-.then(() =>{
-    console.log("Banco Conectado");
-    app.listen(3000)
-})
-.catch((err) => console.log(err))
+//mongoose.connect('mongodb+srv://estronic:HVLoipGR384e4aSD@cluster.xakryqr.mongodb.net/?retryWrites=true&w=majority')
+//.then(() =>{
+//    console.log("Banco Conectado");
+//    app.listen(3000)
+//})
+//.catch((err) => console.log(err))
+
+
 

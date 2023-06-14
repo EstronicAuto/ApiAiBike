@@ -27,14 +27,16 @@ router.get('/:teste', async (req,res) =>{
 
 //Create Bike
 router.post('/', async (req,res) =>{
-    const {numberSerie, BikeApp, batterylevel, velocity,distance,BikeOn,Date} = req.body
+    const {numberSerie, BikeApp, batterylevel, velocity,velocitymax,distance,BikeOn,Date} = req.body
 
     const bike = {
         numberSerie,
         BikeApp,
         batterylevel,
         velocity,
+        velocitymax,
         distance,
+        average,
         BikeOn,
         Date
     }
