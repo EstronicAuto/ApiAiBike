@@ -4,8 +4,12 @@ const router = require("express").Router()
 
 const BikeRouter = require("./service")
 
+const StatusRouter = require("./statusRoutes")
+
 
 router.use("/", BikeRouter)
+
+router.use("/", StatusRouter)
 
 
 module.exports = router

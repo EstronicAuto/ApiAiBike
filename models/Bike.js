@@ -4,26 +4,36 @@ const { Schema } =  mongoose;
 
 const {statusSchema} = require("./Status")
 
-const BikeSchema = new Schema({
-
+const BikeSchema = new mongoose.Schema({
         name:{
             type: String,
-        },
+            require: true
+            },
         numberSerie :{
             type: String,
-            require: false,
+            require: true,
             default: 0
         },
-        BikeApp :{
+        bikeapp :{
             type : Boolean,
             require: true,
             default: false
         },
-        Status :{
-            type: [statusSchema]
-        },
+        user:{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
+            require: true
+        },  
+        status :[{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Status'
+        }],
+        createdAt:{
+            type: Date,
+            default: Date.now
+        }
     },
-    {timestamps: true}
+        {timestamps: true}
     )
 
     const Bike = mongoose.model('Bike', BikeSchema)

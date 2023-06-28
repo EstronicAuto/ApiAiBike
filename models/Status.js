@@ -4,7 +4,7 @@ const { default: mongoose } = require("mongoose");
 const { Schema } =  mongoose;
 
 
-const statusSchema = new Schema(
+const statusSchema = new mongoose.Schema(
     {
         batterylevel:{
             type :  Number,
@@ -35,9 +35,23 @@ const statusSchema = new Schema(
             type : Boolean,
             require: true,
             default: false  
+        },
+        idbike: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'Bike',
+            require: true
+        },
+        assignedTo: {
+           type: mongoose.Schema.Types.ObjectId,
+           ref: 'User',
+           require: true 
+        },
+        createdAt:{
+            type: Date,
+            default: Date.now
         }
     }
 )
 
 const Status = mongoose.model("Status",statusSchema)
-module.exports = Status
+module.exports = {Status, statusSchema}
