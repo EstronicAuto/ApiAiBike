@@ -39,6 +39,16 @@ router.get('/bike/:bikeId', async (req,res) => {
     }
 }) 
 
+router.get('/LastbikeCreated', async (req,res) =>{
+    try {
+        const bike = await BikeModel.find().sort({_id : -1}).limit(1);
+
+        return res.send({bike});
+    } catch (error) {
+        return res.status(400).send({error : 'Error Get'});      
+    }
+})
+
 router.post('/bike', async (req,res) =>{
     try {
 
