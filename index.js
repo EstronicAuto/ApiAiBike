@@ -3,6 +3,7 @@
 //estronic
 // mongodb+srv://estronic:HVLoipGR384e4aSD@cluster.xakryqr.mongodb.net/?retryWrites=true&w=majority
 const express = require('express')
+const bodyParser = require('body-parser')
 //const cors = require('cors')
 const app = express()
 
@@ -14,6 +15,7 @@ app.use(
         extended: true
     })
 )
+
  app.use(express.json())
 
 //DB CONECTAR

@@ -23,7 +23,7 @@ router.get('/bike', async (req,res) => {
     try {
         const bike = await BikeModel.find().populate(['status']);
 
-        return res.send({bike});
+        res.status(200).json(bike);
     } catch (error) {
         return res.status(400).send({error : 'Error Get'});      
     }
@@ -33,7 +33,7 @@ router.get('/bike/:bikeId', async (req,res) => {
     try {
         const bike = await BikeModel.findById(req.params.bikeId).populate('status');
 
-        return res.send({bike});
+        res.status(200).json(bike);
     } catch (error) {
         return res.status(400).send({error : 'Error Get'});      
     }
@@ -43,7 +43,7 @@ router.get('/LastbikeCreated', async (req,res) =>{
     try {
         const bike = await BikeModel.find().sort({_id : -1}).limit(1);
 
-        return res.send({bike});
+        res.status(200).json(bike);
     } catch (error) {
         return res.status(400).send({error : 'Error Get'});      
     }
@@ -66,7 +66,7 @@ router.post('/bike', async (req,res) =>{
 
         await bike.save();
 
-        return res.send({bike});
+        res.status(200).json(bike);
     } catch (error) {
         return res.status(400).send({error : 'Error creating new Bike'});
     }
