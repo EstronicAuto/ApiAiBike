@@ -72,8 +72,16 @@ router.post('/bike', async (req,res) =>{
     }
 })
 
-router.put('/bike/:bikeId', async (req,res) => {
-    res.send({ user: req.userId});
+router.patch('/bike/:bikeId', async (req,res) => {
+   try {
+        const {name, numberSerie,bikeapp} = req.body;
+        const bike = await BikeModel.findByIdAndUpdate(req.params.bikeId,{name, numberSerie,bikeapp});
+    
+        res.status(200).json(bike);
+    
+   } catch (error) {
+        return res.status(400).send({error : 'Error creating new Bike'});
+   }
 })
 
 router.delete('/bike/:bikeid', async (req,res) => {
