@@ -6,7 +6,7 @@ const {Status: StatusModel} = require("../models/Status")
 router.get('/status', async (req,res) => {
     try {
         const status = await StatusModel.find();
-        return res.send({status});
+        return res.status(200).json(status)
     } catch (error) {
         return res.status(400).send({error : 'Error Get'});      
     }
@@ -17,7 +17,7 @@ router.get('/status/:bikeid', async(req,res) =>{
     try {
         const id = req.params.bikeid
         const status = await StatusModel.find({idbike : id});
-        return res.send({status})
+        return res.status(200).json(status)
     } catch (error) {
         return res.status(400).send({error : 'Error Get Status'});  
     }
@@ -27,7 +27,7 @@ router.get('/status/id/:id', async(req,res) =>{
     try {
         const id = req.params.id
         const status = await StatusModel.findById(id);
-        return res.send({status})
+        return res.status(200).json(status)
     } catch (error) {
         return res.status(400).send({error : 'Error Get Status'});  
     }
@@ -46,7 +46,7 @@ router.put('/status/:id', async (req,res) =>{
 
         const updateStatus = await StatusModel.updateOne({idbike : req.params.id}, {$set : status})
         console.log(status);
-        res.send(status)
+        res.status(200).json(status)
     } catch (error) {
         return res.status(400).send({error : 'Error Put Bike'}); 
     }
